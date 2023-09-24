@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class BlockchainConsoleInterface {
+    public static void main(String[] args) {
+        Blockchain blockchain = new Blockchain(); // Создаем экземпляр класса Blockchain 
+
+        Scanner scanner = new Scanner(System.in);
+        boolean exit = false;
+
+        while (!exit) {
+            System.out.println("1. Добавить транзакцию");
+            System.out.println("2. Просмотреть блокчейн");
+            System.out.println("3. Выход");
+            System.out.print("Выберите опцию: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Считываем символ новой строки
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Введите данные транзакции: ");
+                    String transactionData = scanner.nextLine();
+                    // Добавьте транзакцию в блокчейн здесь
+                    System.out.println("Транзакция добавлена.");
+                    break;
+                case 2:
+                    System.out.println("Блокчейн:");
+                    System.out.println(blockchain.toString()); 
+                    break;
+                case 3:
+                    exit = true;
+                    break;
+                default:
+                    System.out.println("Неверный выбор. Попробуйте еще раз.");
+            }
+        }
+
+        scanner.close();
+    }
+}
