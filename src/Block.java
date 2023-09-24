@@ -45,7 +45,6 @@ class Block {
     // Геттер для получения хэша блока
     public String getHash() {
         // You can calculate the hash of the block here if needed
-        // For simplicity, you can return "dummyHash" for now
         return "dummyHash";
     }
 }
