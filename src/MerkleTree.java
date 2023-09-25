@@ -96,7 +96,7 @@ class MerkleTree {
                 List<MerkleNode> newNodes = new ArrayList<>();
                 for (int i = 0; i < nodes.size(); i += 2) {
                     MerkleNode left = nodes.get(i);
-                    MerkleNode right = (i + 1 < nodes.size()) ? nodes.get(i + 1) : left; // Если нечетное количество узлов, дублируем последний
+                    MerkleNode right = (i + 1 < nodes.size()) ? nodes.get(i + 1) : left;
                     newNodes.add(new MerkleNode(left, right));
                 }
                 nodes = newNodes;
