@@ -21,7 +21,6 @@ class Transaction {
         return sender + recipient + amount + timestamp;
     }
 
-    // Геттеры для остальных полей транзакции
     public String getSender() {
         return sender;
     }

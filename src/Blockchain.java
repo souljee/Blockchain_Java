@@ -32,7 +32,7 @@ public class Blockchain {
                 return false;
             }
 
-            if (!currentBlock.getPreviousHash().equals(previousBlock.getMerkleRoot())) {
+            if (!currentBlock.getPreviousHash().equals(previousBlock.getHash())) {
                 return false;
             }
 
@@ -42,4 +42,5 @@ public class Blockchain {
         }
         return true;
     }
+
 }
