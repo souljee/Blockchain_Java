@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
-// Класс для представления транзакций
 class Transaction {
-    private String sender;    // Отправитель
-    private String recipient; // Получатель
-    private double amount;    // Сумма транзакции
-    private long timestamp;   // Время транзакции
+    private String sender;
+    private String recipient;
+    private double amount;
+    private long timestamp;
 
     public Transaction(String sender, String recipient, double amount) {
         this.sender = sender;
@@ -19,7 +17,6 @@ class Transaction {
         this.timestamp = new Date().getTime();
     }
 
-    // Геттер для получения данных транзакции
     public String getData() {
         return sender + recipient + amount + timestamp;
     }
@@ -42,7 +39,6 @@ class Transaction {
     }
 }
 
-// Класс для представления узла дерева Меркла
 class MerkleNode {
     private String hash;
     private MerkleNode left;
@@ -83,24 +79,19 @@ class MerkleNode {
     }
 }
 
-// Класс для представления дерева Меркла
-// Класс для представления дерева Меркла
 class MerkleTree {
     private MerkleNode root;
 
     public MerkleTree(List<Transaction> transactions) {
         if (transactions.isEmpty()) {
-            // Handle the case where there are no transactions
-            this.root = null; // You can set the root to null or handle it as needed
+            this.root = null;
         } else {
             List<MerkleNode> nodes = new ArrayList<>();
 
-            // Создаем узлы для каждой транзакции и добавляем их в список узлов
             for (Transaction transaction : transactions) {
                 nodes.add(new MerkleNode(transaction.getData()));
             }
 
-            // Строим дерево Меркла из списка узлов
             while (nodes.size() > 1) {
                 List<MerkleNode> newNodes = new ArrayList<>();
                 for (int i = 0; i < nodes.size(); i += 2) {
@@ -117,7 +108,6 @@ class MerkleTree {
 
     public String getRootHash() {
         if (root == null) {
-            // Handle the case where there are no transactions
             return "No transactions";
         }
         return root.getHash();
