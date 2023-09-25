@@ -1,12 +1,11 @@
 import java.util.List;
 
-// Класс для представления блока с транзакциями и деревом Меркла
 class Block {
-    private int index;              // Номер блока в цепи
-    private long timestamp;         // Время создания блока в миллисекундах
-    private List<Transaction> transactions; // Список транзакций в блоке
-    private String previousHash;    // Хэш предыдущего блока
-    private String merkleRoot;      // Корень дерева Меркла
+    private int index;
+    private long timestamp;
+    private List<Transaction> transactions;
+    private String previousHash;
+    private String merkleRoot;
 
     public Block(int index, List<Transaction> transactions, String previousHash) {
         this.index = index;
@@ -21,7 +20,6 @@ class Block {
         return merkleTree.getRootHash();
     }
 
-    // Геттеры и сеттеры для полей блока
     public int getIndex() {
         return index;
     }
@@ -42,10 +40,7 @@ class Block {
         return merkleRoot;
     }
 
-    // Геттер для получения хэша блока
     public String getHash() {
-        // You can calculate the hash of the block here if needed
-        // For simplicity, you can return "dummyHash" for now
         return "dummyHash";
     }
 }
